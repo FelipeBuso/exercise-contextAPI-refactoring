@@ -1,29 +1,5 @@
-import React, { Component, createContext } from 'react'
+import { createContext } from 'react';
 
-export default class CarContext extends Component {
-  constructor() {
-    super();
-    this.state = {
-      red: false,
-      blue: false,
-      yellow: false,
-    }
-  }
+const CarContext = createContext();
 
-  moveCar(car, side) {
-    this.setState({
-      [car]: side,
-    })
-
-  }
-  
-  render() {
-    const MyContex = createContext(this.state, this.handleChangeCar);
-    const { children } = this.props
-    return (
-      <MyContex.Provider value={ MyContex }>
-          <children />
-      </MyContex.Provider>
-    )
-  }
-}
+export default CarContext;
